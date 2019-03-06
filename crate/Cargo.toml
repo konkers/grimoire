@@ -12,6 +12,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 cfg-if = "0.1.5"
+js-sys = "0.3.15"
 wasm-bindgen = "0.2.25"
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
@@ -28,6 +29,9 @@ wee_alloc = { version = "0.4.2", optional = true }
 [dependencies.web-sys]
 version = "0.3"
 features = []
+
+[dependencies.ff4]
+path = "../external/ff4"
 
 [features]
 default = ["console_error_panic_hook"]

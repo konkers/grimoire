@@ -11,4 +11,9 @@ export class AppComponent {
 
   constructor(private ff4Service: Ff4Service) {
   }
+
+  handleRomUpload(files: FileList) {
+    console.log(files);
+    this.ff4Service.uploadRom(files[0]);
+  }
 }
