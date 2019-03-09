@@ -7,6 +7,8 @@ extern crate wasm_bindgen;
 
 use wasm_bindgen::prelude::*;
 
+pub use ff4::Ff4;
+
 #[wasm_bindgen]
 extern "C" {
     // Use `js_namespace` here to bind `console.log(..)` instead of just
@@ -45,11 +47,11 @@ cfg_if! {
 
 #[wasm_bindgen]
 pub struct Ff4Service {
-    ff4: ff4::Ff4,
+   ff4: Ff4,
 }
 
 impl Ff4Service {
-    pub fn new(ff4: ff4::Ff4) -> Ff4Service {
+    pub fn new(ff4: Ff4) -> Ff4Service {
         Ff4Service{
             ff4
         }
@@ -59,7 +61,7 @@ impl Ff4Service {
 #[wasm_bindgen]
 impl Ff4Service {
     pub fn get_monsters(&self) -> Result<JsValue, JsValue> {
-        Ok(JsValue::from_serde(&self.ff4.monster_data.monsters)
+        Ok(JsValue::from_serde(&self.ff4.monster_data)
             .map_err(|e| JsValue::from_str(&e.to_string()))?)
     }
 }

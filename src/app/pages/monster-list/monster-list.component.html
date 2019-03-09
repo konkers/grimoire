@@ -1,0 +1,5 @@
+<ul *ngIf="monsterData">
+  <li *ngFor="let monster of monsterData.monsters">
+    <a routerLink="/monster/{{monster.index}}">{{monsterData['name_table'][monster.index]}}</a>
+  </li>
+</ul>

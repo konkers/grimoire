@@ -1,7 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-
-  <input type="file" (change)="handleRomUpload($event.target.files)"/>
-<router-outlet></router-outlet>
+<mat-toolbar color="primary" class="mat-elevation-z4">
+  <a mat-button routerLink="/">Grimoire</a>
+</mat-toolbar>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
