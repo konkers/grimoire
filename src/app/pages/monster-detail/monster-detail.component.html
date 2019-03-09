@@ -1,0 +1,90 @@
+<mat-card *ngIf="monsterData">
+  <mat-card-header>
+    <mat-card-title>{{name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="content">
+    <div class="sprite">monster sprite goes here</div>
+    <div class="stats">
+      <table>
+
+        <tr>
+          <td>Boss</td>
+          <td>{{monster.is_boss}}</td>
+        </tr>
+        <tr>
+          <td>Level</td>
+          <td>{{monster.level}}</td>
+        </tr>
+        <tr>
+          <td>Max HP</td>
+          <td>{{monster.max_hp}}</td>
+        </tr>
+        <tr>
+          <td>Speed</td>
+          <td>
+            <app-speed [speed]="speed"></app-speed>
+          </td>
+        </tr>
+        <tr>
+          <td>Spell Power</td>
+          <td>{{monster.spell_power}}</td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td></td>
+          <td>base</td>
+          <td>mult</td>
+          <td>rate</td>
+        </tr>
+        <tr>
+          <td>Phys Atk.</td>
+          <td>{{physicalAttack.base}}</td>
+          <td>{{physicalAttack.mult}}</td>
+          <td>{{physicalAttack.rate}}</td>
+        </tr>
+        <tr>
+          <td>Phys def.</td>
+          <td>{{physicalDefense.base}}</td>
+          <td>{{physicalDefense.mult}}</td>
+          <td>{{physicalDefense.rate}}</td>
+        </tr>
+        <tr>
+          <td>Mag def.</td>
+          <td>{{magicalDefense.base}}</td>
+          <td>{{magicalDefense.mult}}</td>
+          <td>{{magicalDefense.rate}}</td>
+        </tr>
+      </table>
+
+    </div>
+
+    <table>
+      <tr>
+        <td>Drop Rate</td>
+        <td>{{monster.drop_rate}}</td>
+      </tr>
+      <tr>
+        <td>Drop Table</td>
+        <td>{{dropTable}}</td>
+      </tr>
+      <tr>
+        <td>Attack Statuses</td>
+        <td>{{monster.attack_statuses}}</td>
+      </tr>
+      <tr>
+        <td>Defense Statuses</td>
+        <td>{{monster.defense_statuses}}</td>
+      </tr>
+      <tr>
+        <td>Weaknesses</td>
+        <td>{{monster.weaknesses}}</td>
+      </tr>
+      <tr>
+        <td>Creature Types</td>
+        <td>{{monster.creature_types}}</td>
+      </tr>
+    </table>
+  </mat-card-content>
+
+</mat-card>

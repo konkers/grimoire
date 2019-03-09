@@ -1,0 +1,43 @@
+
+@import '../node_modules/@angular/material/theming';
+
+@import './app/pages/home/home-theme';
+
+
+// Styles for the docs app that are based on the current theme.
+@mixin grimiore-app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $next-theme: mat-palette($mat-red);
+
+  .grimiore-app-background {
+    background: mat-color($background, background);
+  }
+
+  .grimiore-primary-header {
+    background: mat-color($primary);
+
+    h1 {
+      color: mat-color($primary, default-contrast);
+    }
+  }
+
+  .grimiore-footer {
+    background: mat-color($primary);
+    color: mat-color($primary, default-contrast);
+  }
+
+  .is-next-version {
+    background: mat-color($next-theme, 900) !important;
+  }
+
+  a {
+    color: mat-color($primary, default-contrast);
+    font-weight: bold;
+  }
+
+  @include home-theme($theme);
+}

@@ -1,0 +1,17 @@
+<header class="grimiore-header-background">
+  <div class="grimiore-header-section">
+    <div class="grimiore-header-headline">
+      <h1 class="mat-h1">Grimiore</h1>
+      <h2>A Final Fantasy IV Editor</h2>
+    </div>
+    <div *ngIf="dataLoaded == false" class="grimiore-header-start">
+      Upload Final Fantasy II US version 1.1 rom:
+      <br />
+      <input type="file" value="abs" (change)="handleRomUpload($event.target.files)" />
+    </div>
+  </div>
+</header>
+
+<div *ngIf="dataLoaded">
+  <a class="mat-raised-button" routerLink="/monsters">Monsters</a>
+</div>
