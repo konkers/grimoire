@@ -13,7 +13,8 @@ crate-type = ["cdylib"]
 [dependencies]
 cfg-if = "0.1.5"
 js-sys = "0.3.15"
-wasm-bindgen = "0.2.25"
+serde = "^1.0.59"
+serde_derive = "^1.0.59"
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
 # logging them with `console.error`. This is great for development, but requires
@@ -25,6 +26,11 @@ console_error_panic_hook = { version = "0.1.5", optional = true }
 # compared to the default allocator's ~10K. It is slower than the default
 # allocator, however.
 wee_alloc = { version = "0.4.2", optional = true }
+
+[dependencies.wasm-bindgen]
+verson = "0.2.25"
+features = ["serde-serialize"]
+
 
 [dependencies.web-sys]
 version = "0.3"
