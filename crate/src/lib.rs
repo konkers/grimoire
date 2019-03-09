@@ -43,21 +43,36 @@ cfg_if! {
     }
 }
 
+#[wasm_bindgen]
+pub struct Ff4Service {
+    ff4: ff4::Ff4,
+}
+
+impl Ff4Service {
+    pub fn new(ff4: ff4::Ff4) -> Ff4Service {
+        Ff4Service{
+            ff4
+        }
+    }
+}
+
+#[wasm_bindgen]
+impl Ff4Service {
+    pub fn get_monsters(&self) -> Result<JsValue, JsValue> {
+        Ok(JsValue::from_serde(&self.ff4.monsters)
+            .map_err(|e| JsValue::from_str(&e.to_string()))?)
+    }
+}
+
 // Called by our JS entry point to run the example.
 #[wasm_bindgen]
 pub fn run() -> JsValue {
-    //console_log!("run");
     set_panic_hook();
-
-
     JsValue::from_str("test")
 }
 
 #[wasm_bindgen]
-pub fn load_rom(rom: &[u8]) -> Result<JsValue, JsValue> {
-    console_log!("load_rom");
-    let data = ff4::parse_rom(rom).map_err(|_e| JsValue::from_str("error"))?;
-
-    console_log!("parsed: {:?}", data);
-    Ok(JsValue::from_str("test"))
+pub fn load_rom(rom: &[u8]) -> Result<Ff4Service, JsValue> {
+    let ff4 = ff4::parse_rom(rom).map_err(|e| JsValue::from_str(&e.to_string()))?;
+    Ok(Ff4Service::new(ff4))
 }
