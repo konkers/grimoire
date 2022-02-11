@@ -24,7 +24,7 @@
     "@angular/platform-browser-dynamic": "^7.2.7",
     "@angular/router": "^7.2.7",
     "@types/webassembly-js-api": "0.0.2",
-    "ajv": "^6.10.0",
+    "ajv": "^6.12.3",
     "base64-arraybuffer": "^0.1.5",
     "core-js": "^2.6.5",
     "fast-sha256": "^1.1.0",
